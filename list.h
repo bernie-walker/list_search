@@ -10,5 +10,17 @@ typedef struct node
   struct node *next;
 } Node;
 
+typedef struct
+{
+  Node *first;
+  Node *last;
+  size_t length;
+} List;
+
 Node *create_node(int);
+
+List *create_list(void);
+
+void add_item(List *, int);
+
 #endif // !__LIST_H_
