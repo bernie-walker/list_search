@@ -29,7 +29,7 @@ void print_search_result(int item, int index)
     return;
   }
 
-  printf("%d is present present in the list at position %d\n\n", item, index);
+  printf("%d is present present in the list at position %d\n", item, index);
 }
 
 void search_list(List *list)
@@ -38,7 +38,7 @@ void search_list(List *list)
 
   while (1)
   {
-    printf("What number would you like to search for?\n");
+    printf("\nWhat number would you like to search for?\n");
     scanf("%d", &search_value);
 
     if (search_value == -99)
@@ -46,7 +46,7 @@ void search_list(List *list)
       break;
     }
 
-    int item_index = search_item(list, search_value);
+    int item_index = find_item(list, search_value);
     print_search_result(search_value, item_index);
   }
 }

@@ -34,7 +34,7 @@ void add_item(List *list, int value)
   ++list->length;
 }
 
-int search_item(List *list, int item)
+int find_item(List *list, int item)
 {
   Node *walker = list->first;
 
