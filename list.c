@@ -33,3 +33,19 @@ void add_item(List *list, int value)
   list->last = new_node;
   ++list->length;
 }
+
+int search_item(List *list, int item)
+{
+  Node *walker = list->first;
+
+  for (size_t i = 0; i < list->length; i++)
+  {
+    if (walker->value == item)
+    {
+      return i;
+    }
+    walker = walker->next;
+  }
+
+  return -1;
+}

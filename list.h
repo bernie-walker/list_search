@@ -23,4 +23,6 @@ List *create_list(void);
 
 void add_item(List *, int);
 
+int search_item(List *, int);
+
 #endif // !__LIST_H_
