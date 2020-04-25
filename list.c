@@ -37,14 +37,16 @@ void add_item(List *list, int value)
 int find_item(List *list, int item)
 {
   Node *walker = list->first;
+  size_t index = 0;
 
-  for (size_t i = 0; i < list->length; i++)
+  while (walker != NULL)
   {
     if (walker->value == item)
     {
-      return i;
+      return index;
     }
     walker = walker->next;
+    ++index;
   }
 
   return -1;
