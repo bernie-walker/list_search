@@ -1,4 +1,7 @@
-#include "search.h"
+#include <stdio.h>
+#include "list.h"
+
+List *initialize_search_list(void);
 
 List *initialize_search_list(void)
 {
@@ -21,6 +24,8 @@ List *initialize_search_list(void)
   return user_list;
 }
 
+void print_search_result(int, int);
+
 void print_search_result(int item, int index)
 {
   if (index == -1)
@@ -31,6 +36,8 @@ void print_search_result(int item, int index)
 
   printf("%d is present present in the list at position %d\n", item, index);
 }
+
+void search_list(List *);
 
 void search_list(List *list)
 {
@@ -49,4 +56,11 @@ void search_list(List *list)
     int item_index = find_item(list, search_value);
     print_search_result(search_value, item_index);
   }
+}
+
+int main(void)
+{
+  List *user_list = initialize_search_list();
+  search_list(user_list);
+  return 0;
 }
