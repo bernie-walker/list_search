@@ -1,24 +1,27 @@
 #include <stdio.h>
 #include "list.h"
 
+int get_user_in(char[]);
+
+int get_user_in(char message[])
+{
+  int input;
+  printf("%s", message);
+  scanf("%d", &input);
+  return input;
+}
+
 List *initialize_search_list(void);
 
 List *initialize_search_list(void)
 {
   List *user_list = create_list();
-  int value;
+  int value = get_user_in("Please enter a number:\n");
 
-  while (1)
+  while (value != -99)
   {
-    printf("Please enter a number:\n");
-    scanf("%d", &value);
-
-    if (value == -99)
-    {
-      break;
-    }
-
     add_item(user_list, value);
+    value = get_user_in("Please enter a number:\n");
   }
 
   return user_list;
@@ -41,20 +44,13 @@ void search_list(List *);
 
 void search_list(List *list)
 {
-  int search_value;
+  int search_value = get_user_in("\nWhat number would you like to search for?\n");
 
-  while (1)
+  while (search_value != -99)
   {
-    printf("\nWhat number would you like to search for?\n");
-    scanf("%d", &search_value);
-
-    if (search_value == -99)
-    {
-      break;
-    }
-
     int item_index = find_item(list, search_value);
     print_search_result(search_value, item_index);
+    search_value = get_user_in("\nWhat number would you like to search for?\n");
   }
 }
 
